@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head_block %}
+<meta http-equiv="refresh" content="5">
+    {% endblock %}
+    
+    {% block body_block %}
+    <h1>Alerts:</h1>
+    <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">NAME</th>
+                    <th scope="col">IP</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col">TYPE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {% for key,value in items.items %}
+                    <th scope="row">{{value.name}}</th>
+                    <td><a href="{% url 'server_monitor:graph' ip=value.ip %}">{{value.ip}}</a></td>
+                    <td>{{value.status}}</td>
+                    <td>{{value.type}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}

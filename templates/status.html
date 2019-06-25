@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+    {% block head_block %}
+    <meta http-equiv="refresh" content="5">
+        {% endblock %}
+
+    {% block body_block %}
+        <h1>Status: </h1>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col"><a href="{% url 'server_monitor:status' %}">NAME</a></th>
+                    <th scope="col">IP</th>
+                    <th scope="col"><a href="{% url 'server_monitor:cpu' %}">CPU</a></th>
+                    <th scope="col"><a href="{% url 'server_monitor:mem' %}">MEMORY</a></th>
+                    <th scope="col"><a href="{% url 'server_monitor:net' %}">NETWORK</a></th>
+                    <th scope="col"><a href="{% url 'server_monitor:strg' %}">STORAGE</a></th>
+                    <th scope="col">LAST RESULT</th>
+                    <th scope="col">LAST TEST TIME</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {% for key,value in items.items %}
+                    <th scope="row">{{value.name}}</th>
+                    <td><a href="{% url 'server_monitor:graph' ip=value.ip %}">{{value.ip}}</a></td>
+                    <td>{{value.cpu}}</td>
+                    <td>{{value.mem}}</td>
+                    <td>{{value.net}}</td>
+                    <td>{{value.strg}}</td>
+                    <td>{{value.time}}</td>
+                    <td>{{value.test_time}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}

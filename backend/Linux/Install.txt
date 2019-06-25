@@ -1,0 +1,9 @@
+1. paste tcpserver.service in /etc/systemd/system
+2. paste tcpServerSideLinux.py in ~/ServerMonitor
+3. sudo apt-get install python3
+4. sudo apt-get python3-pip
+5. pip3 install psutil
+6. chmod 777 both tcpserver.service and tcpServerSideLinux
+7. systemctl daemon-reload
+8. systemctl start tcpserver.service
+9. systemctl status tcpserver.service

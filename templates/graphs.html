@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+    {% block body_block %}
+        {% for key,value in items.items %}
+        <center><img src="/media/{{ value }}/CPU/{{ key }}_CPU_Graph.png" alt="No Graph Found">  <img src="/media/{{ value }}/RAM/{{ key }}_RAM_Graph.png" alt="No Graph Found"></center>
+           <center><h3>IP: {{value}} Date: {{key}} </h3</center> 
+            <center><h4><a href="D:\server_monitor\{{ value }}">Data</a></h4></center>
+        {% endfor %}
+    {% endblock %}

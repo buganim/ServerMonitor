@@ -1,0 +1,10 @@
+[Unit]
+Description=Server Monitor Agent
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /home/avivhodasman/ServerMonitor/tcpServerSideLinux.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
